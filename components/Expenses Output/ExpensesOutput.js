@@ -2,11 +2,11 @@ import { View, Text } from "react-native";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 
-function ExpensesOutput({ expenses }) {
+function ExpensesOutput({ expenses, expensesPeriod }) {
   return (
     <View>
-      <ExpensesSummary />
-      <ExpensesList/>
+      <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
+      <ExpensesList />
     </View>
   );
 }

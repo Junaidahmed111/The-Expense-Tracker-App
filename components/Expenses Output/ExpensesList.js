@@ -12,4 +12,4 @@ function ExpensesList({ expenses }) {
     />
   );
 }
-export default ExpensesList();
+export default ExpensesList;

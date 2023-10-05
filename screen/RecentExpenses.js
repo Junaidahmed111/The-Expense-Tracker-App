@@ -1,4 +1,3 @@
-import { Text } from "react-native";
 import ExpensesOutput from "../components/Expenses Output/ExpensesOutput";
 
 function RecentExpenses() {

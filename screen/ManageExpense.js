@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import IconButton from "../components/UI/IconButton";
 import Button from "../components/UI/Button";
 import { GlobalStyles } from "../constants/styles";
+
 function ManageExpense({ route, navigation }) {
   const editedexpenseId = route.params?.expenseId;
   const isEditing = !!editedexpenseId;
@@ -13,9 +14,15 @@ function ManageExpense({ route, navigation }) {
     });
   }, [isEditing, navigation]);
 
-  function deleteExpenseHandler() {}
-  function cancelHanlder() {}
-  function confirmHanlder() {}
+  function deleteExpenseHandler() {
+    navigation.goBack();
+  }
+  function cancelHanlder() {
+    navigation.goBack();
+  }
+  function confirmHanlder() {
+    navigation.goBack();
+  }
 
   return (
     <View style={styles.container}>

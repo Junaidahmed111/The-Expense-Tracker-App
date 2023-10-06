@@ -75,8 +75,16 @@ function expensesReducer({ state, action }) {
     case "ADD":
       const id = new Date().toString() + Math.random().toString();
       return [{ ...action.data, id: id }, ...state];
-    case "DELETE":
     case "UPDATE":
+      const updatableExpenseContext = state.findIndex(
+        (expense) => expense.id === action.data.id
+      );
+      const updatableExpense = state[updatableExpenseContext];
+      const UpdatedItem = [...updatableExpense, ...action.data.dataa];
+      const updatedExpenses = [...state];
+      updatedExpenses[updatableExpenseContext] = UpdatedItem;
+      return updatedExpenses;
+    case "DELETE":
     default:
       return state;
   }

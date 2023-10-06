@@ -85,6 +85,7 @@ function expensesReducer({ state, action }) {
       updatedExpenses[updatableExpenseContext] = UpdatedItem;
       return updatedExpenses;
     case "DELETE":
+      return state.filter((expense) => expense.id !== action.data);
     default:
       return state;
   }

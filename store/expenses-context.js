@@ -70,7 +70,7 @@ export const ExpensesContext = createContext({
   updateExpense: (id, { description, amount, date }) => {},
 });
 
-function expensesReducer({ state, action }) {
+function expensesReducer(state, action) {
   switch (action.type) {
     case "ADD":
       const id = new Date().toString() + Math.random().toString();
@@ -80,7 +80,7 @@ function expensesReducer({ state, action }) {
         (expense) => expense.id === action.data.id
       );
       const updatableExpense = state[updatableExpenseContext];
-      const UpdatedItem = [...updatableExpense, ...action.data.dataa];
+      const UpdatedItem = { ...updatableExpense, ...action.data.dataa };
       const updatedExpenses = [...state];
       updatedExpenses[updatableExpenseContext] = UpdatedItem;
       return updatedExpenses;
@@ -97,6 +97,7 @@ function ExpensesContextProvider({ children }) {
     dispatch({ type: "ADD", data: expenseData });
   }
   function deleteExpense(id) {
+    console.log(id);
     dispatch({ type: "DELETE", data: id });
   }
   function updateExpense(id, expenseData) {

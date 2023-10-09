@@ -75,7 +75,7 @@ function expensesReducer(state, action) {
     case "ADD":
       const id = new Date().toString() + Math.random().toString();
       return [{ ...action.data, id: id }, ...state];
-    case "UPDATE":
+    case "UPDATEe":
       const updatableExpenseContext = state.findIndex(
         (expense) => expense.id === action.data.id
       );

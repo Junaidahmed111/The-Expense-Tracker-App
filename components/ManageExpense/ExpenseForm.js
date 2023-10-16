@@ -15,7 +15,14 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit }) {
       return { ...curInputValues, [inputIdentifier]: enteredValue };
     });
   }
-  function submitHanlder() {}
+  function submitHanlder() {
+    const expenseData = {
+      amount: +inputValues.amount,
+      date: new Date(inputValues.date),
+      description: inputValues.description,
+    };
+    onSubmit(expenseData);
+  }
   return (
     <View style={styles.form}>
       <Text style={styles.text}>Your Expense</Text>
